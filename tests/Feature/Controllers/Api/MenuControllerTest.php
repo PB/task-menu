@@ -98,17 +98,17 @@ class MenuControllerTest extends TestCase
     {
         $menu = factory(Menu::class)->create();
 
-        $response = $this->get('/api/menus/' . $menu->getId());
+        $response = $this->json('GET', '/api/menus/' . $menu->id);
 
         $response
             ->assertStatus(200)
             ->assertExactJson(
                 [
                     'data' => [
-                        'id' => $menu->getId(),
-                        'name' => $menu->getName(),
-                        'max_depth' => $menu->getMaxDepth(),
-                        'max_children' => $menu->getMaxChildren(),
+                        'id' => $menu->id,
+                        'name' => $menu->name,
+                        'max_depth' => $menu->max_depth,
+                        'max_children' => $menu->max_children,
                     ]
                 ]
             );
@@ -121,7 +121,7 @@ class MenuControllerTest extends TestCase
      */
     public function testShowNotFound(): void
     {
-        $response = $this->get('/api/menus/10000');
+        $response = $this->json('GET', '/api/menus/10000');
 
         $response->assertStatus(404);
     }
@@ -133,7 +133,7 @@ class MenuControllerTest extends TestCase
      */
     public function testShowInvalid(): void
     {
-        $response = $this->get('/api/menus/test');
+        $response = $this->json('GET', '/api/menus/test');
 
         $response->assertStatus(400);
     }
@@ -154,14 +154,14 @@ class MenuControllerTest extends TestCase
             'max_children' => 2,
         ];
 
-        $response = $this->json('PUT', '/api/menus/' . $menu->getId(), $request);
+        $response = $this->json('PUT', '/api/menus/' . $menu->id, $request);
 
         $response
             ->assertStatus(200)
             ->assertExactJson(
                 [
                     'data' => [
-                        'id' => $menu->getId(),
+                        'id' => $menu->id,
                         'name' => $name,
                         'max_depth' => 4,
                         'max_children' => 2,
@@ -184,17 +184,17 @@ class MenuControllerTest extends TestCase
             'name' => $name,
         ];
 
-        $response = $this->json('PATCH', '/api/menus/' . $menu->getId(), $request);
+        $response = $this->json('PATCH', '/api/menus/' . $menu->id, $request);
 
         $response
             ->assertStatus(200)
             ->assertExactJson(
                 [
                     'data' => [
-                        'id' => $menu->getId(),
+                        'id' => $menu->id,
                         'name' => $name,
-                        'max_depth' => $menu->getMaxDepth(),
-                        'max_children' => $menu->getMaxChildren(),
+                        'max_depth' => $menu->max_depth,
+                        'max_children' => $menu->max_children,
                     ]
                 ]
             );
@@ -209,7 +209,7 @@ class MenuControllerTest extends TestCase
     {
         $menu = factory(Menu::class)->create();
 
-        $response = $this->json('PUT', '/api/menus/' . $menu->getId());
+        $response = $this->json('PUT', '/api/menus/' . $menu->id);
 
         $response->assertStatus(400);
     }
@@ -227,7 +227,7 @@ class MenuControllerTest extends TestCase
             'name' => null,
         ];
 
-        $response = $this->json('PUT', '/api/menus/' . $menu->getId(), $request);
+        $response = $this->json('PUT', '/api/menus/' . $menu->id, $request);
 
         $response->assertStatus(400);
     }
@@ -247,7 +247,7 @@ class MenuControllerTest extends TestCase
             'max_children' => [5]
         ];
 
-        $response = $this->json('PUT', '/api/menus/' . $menu->getId(), $request);
+        $response = $this->json('PUT', '/api/menus/' . $menu->id, $request);
 
         $response->assertStatus(400);
     }
@@ -261,7 +261,7 @@ class MenuControllerTest extends TestCase
     {
         $menu = factory(Menu::class)->create();
 
-        $response = $this->json('DELETE', '/api/menus/' . $menu->getId());
+        $response = $this->json('DELETE', '/api/menus/' . $menu->id);
 
         $response->assertStatus(204);
     }
