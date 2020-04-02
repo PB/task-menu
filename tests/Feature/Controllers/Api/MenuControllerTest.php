@@ -34,12 +34,10 @@ class MenuControllerTest extends TestCase
             ->assertStatus(201)
             ->assertExactJson(
                 [
-                    'data' => [
-                        'id' => 1,
-                        'name' => $name,
-                        'max_depth' => 5,
-                        'max_children' => 5,
-                    ]
+                    'id' => 1,
+                    'name' => $name,
+                    'max_depth' => 5,
+                    'max_children' => 5,
                 ]
             );
     }
@@ -105,12 +103,10 @@ class MenuControllerTest extends TestCase
             ->assertStatus(200)
             ->assertExactJson(
                 [
-                    'data' => [
-                        'id' => $menu->id,
-                        'name' => $menu->name,
-                        'max_depth' => $menu->max_depth,
-                        'max_children' => $menu->max_children,
-                    ]
+                    'id' => $menu->id,
+                    'name' => $menu->name,
+                    'max_depth' => $menu->max_depth,
+                    'max_children' => $menu->max_children,
                 ]
             );
     }
@@ -161,12 +157,10 @@ class MenuControllerTest extends TestCase
             ->assertStatus(200)
             ->assertExactJson(
                 [
-                    'data' => [
-                        'id' => $menu->id,
-                        'name' => $name,
-                        'max_depth' => 4,
-                        'max_children' => 2,
-                    ]
+                    'id' => $menu->id,
+                    'name' => $name,
+                    'max_depth' => 4,
+                    'max_children' => 2,
                 ]
             );
     }
@@ -191,12 +185,10 @@ class MenuControllerTest extends TestCase
             ->assertStatus(200)
             ->assertExactJson(
                 [
-                    'data' => [
-                        'id' => $menu->id,
-                        'name' => $name,
-                        'max_depth' => $menu->max_depth,
-                        'max_children' => $menu->max_children,
-                    ]
+                    'id' => $menu->id,
+                    'name' => $name,
+                    'max_depth' => $menu->max_depth,
+                    'max_children' => $menu->max_children,
                 ]
             );
     }
