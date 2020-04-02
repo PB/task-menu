@@ -6,7 +6,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\JsonResponse;
 
-class JSONRequestMiddleware {
+class JSONRequestMiddleware
+{
     /**
      * Handle an incoming request.
      * Allow only Content-Type: application/json
@@ -17,7 +18,8 @@ class JSONRequestMiddleware {
      *
      * @return mixed
      */
-    public function handle($request, Closure $next) {
+    public function handle($request, Closure $next)
+    {
         if (!$request->isJson()) {
             return response()->json([], JsonResponse::HTTP_NOT_ACCEPTABLE);
         }
