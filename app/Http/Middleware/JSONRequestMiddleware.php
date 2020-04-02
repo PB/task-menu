@@ -10,6 +10,7 @@ class JSONRequestMiddleware {
     /**
      * Handle an incoming request.
      * Allow only Content-Type: application/json
+     * This middleware should be applied only on API routes
      *
      * @param \Illuminate\Http\Request $request
      * @param \Closure                 $next
