@@ -4,7 +4,10 @@ declare(strict_types=1);
 namespace App\Services\Item\Repository;
 
 use App\Item;
+use App\Menu;
+use App\Services\Menu\MenuService;
 use Illuminate\Support\Facades\DB;
+use Nette\NotImplementedException;
 
 /**
  * Class ItemRepository
@@ -38,12 +41,15 @@ class ItemRepository implements ItemRepositoryInterface
     }
 
     /**
-     * @param int $itemId
+     * @param int $menuId
      *
      * @return array
      */
-    public function showItem(int $itemId): array
+    public function showMenuItems(int $menuId): array
     {
+        //not the best place (but check if menu exist)
+        $menu = Menu::findOrFail($menuId);
+        return Item::scoped([ 'menu_id' => $menu->id ])->get()->toTree()->toArray();
     }
 
     /**
@@ -51,5 +57,6 @@ class ItemRepository implements ItemRepositoryInterface
      */
     public function destroyItem(int $itemId): void
     {
+        //todo: Implement
     }
 }

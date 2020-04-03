@@ -44,7 +44,9 @@ class MenuItemController extends Controller
      */
     public function show($menu): JsonResponse
     {
-        //
+        $data = $this->itemService->showItem(['menu_id' => $menu]);
+
+        return response()->json($data['item'] ?? []);
     }
 
     /**

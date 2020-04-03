@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 namespace App\Services\Item;
 
+use App\Services\Item\Command\ShowItemCommand;
 use App\Services\Item\Command\StoreItemCommand;
+use App\Services\Item\Handler\ShowItemHandler;
 use App\Services\Item\Handler\StoreItemHandler;
+use App\Services\Item\Validator\ShowItemValidator;
 use App\Services\Item\Validator\StoreItemValidator;
 use Joselfonseca\LaravelTactician\CommandBusInterface;
 
@@ -45,7 +48,8 @@ class ItemService implements ItemServiceInterface
      */
     public function showItem(array $data = [])
     {
-        // TODO: Implement showItem() method.
+        $this->bus->addHandler(ShowItemCommand::class, ShowItemHandler::class);
+        return $this->bus->dispatch(ShowItemCommand::class, $data, [ShowItemValidator::class]);
     }
 
     /**

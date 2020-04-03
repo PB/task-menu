@@ -18,11 +18,11 @@ interface ItemRepositoryInterface
     public function storeItem(array $items): array;
 
     /**
-     * @param int $itemId
+     * @param int $menuId
      *
      * @return array
      */
-    public function showItem(int $itemId): array;
+    public function showMenuItems(int $menuId): array;
 
     /**
      * @param int $itemId
