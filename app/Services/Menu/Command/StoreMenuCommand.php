@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Services\menu\Command;
+namespace App\Services\Menu\Command;
 
 use Illuminate\Contracts\Support\Arrayable;
 
