@@ -35,18 +35,20 @@ class MenuController extends Controller
     {
         $data = $this->menuService->storeMenu($request->all());
 
-        return response()->json($data['menu'], JsonResponse::HTTP_CREATED);
+        return response()->json($data['menu'] ?? [], JsonResponse::HTTP_CREATED);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  mixed  $menu
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function show($menu)
     {
-        //
+        $data = $this->menuService->showMenu(['id' => $menu]);
+
+        return response()->json($data['menu'] ?? []);
     }
 
     /**

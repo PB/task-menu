@@ -5,6 +5,7 @@ namespace App\Services\Menu\Repository;
 
 use App\Menu;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Class MenuRepository
@@ -31,5 +32,15 @@ class MenuRepository implements MenuRepositoryInterface
             DB::rollBack();
             throw new \RuntimeException($e->getMessage());
         }
+    }
+
+    /**
+     * @param int $menuId
+     *
+     * @return array
+     */
+    public function showMenu(int $menuId): array
+    {
+        return Menu::findOrFail($menuId)->toArray();
     }
 }

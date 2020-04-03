@@ -16,4 +16,11 @@ interface MenuServiceInterface
      * @return mixed
      */
     public function storeMenu(array $data = []);
+
+    /**
+     * @param array $data
+     *
+     * @return mixed
+     */
+    public function showMenu(array $data = []);
 }

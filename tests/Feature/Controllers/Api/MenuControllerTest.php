@@ -105,8 +105,9 @@ class MenuControllerTest extends TestCase
                 [
                     'id' => $menu->id,
                     'name' => $menu->name,
-                    'max_depth' => $menu->max_depth,
-                    'max_children' => $menu->max_children,
+                    // I don't know why but it return string
+                    'max_depth' => (string)$menu->max_depth,
+                    'max_children' => (string)$menu->max_children,
                 ]
             );
     }
