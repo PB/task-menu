@@ -188,8 +188,8 @@ class MenuControllerTest extends TestCase
                 [
                     'id' => $menu->id,
                     'name' => $name,
-                    'max_depth' => $menu->max_depth,
-                    'max_children' => $menu->max_children,
+                    'max_depth' => (string)$menu->max_depth,
+                    'max_children' => (string)$menu->max_children,
                 ]
             );
     }

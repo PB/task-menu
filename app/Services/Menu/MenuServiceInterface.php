@@ -30,4 +30,11 @@ interface MenuServiceInterface
      * @return mixed
      */
     public function destroyMenu(array $data = []);
+
+    /**
+     * @param array $data
+     *
+     * @return mixed
+     */
+    public function updateMenu(array $data = []);
 }

@@ -8,18 +8,19 @@ use Illuminate\Support\Facades\Validator;
 use League\Tactician\Middleware;
 
 /**
- * Class StoreMenuValidator
+ * Class UpdateMenuValidator
  *
  * @package App\Services\Menu\Validator
  */
-class StoreMenuValidator implements Middleware
+class UpdateMenuValidator implements Middleware
 {
 
     /**
      * @var array
      */
     protected $rules = [
-        'name' => 'required|string|max:255',
+        'id' => 'required|integer',
+        'name' => 'string|max:255',
         'max_depth' => 'nullable|integer|min:0',
         'max_children' => 'nullable|integer|min:0'
     ];
@@ -37,6 +38,11 @@ class StoreMenuValidator implements Middleware
         if ($validator->fails()) {
             throw new ValidationException($validator->errors()->toArray());
         }
+        // check if payload is not empty
+        if (count($command->toArray()) <= 1) {
+            throw new ValidationException(['Invalid payload']);
+        }
+
         return $next($command);
     }
 }

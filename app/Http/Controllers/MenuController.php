@@ -56,11 +56,15 @@ class MenuController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  mixed  $menu
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function update(Request $request, $menu)
     {
-        //
+        $input = $request->all();
+        $input['id'] = $menu;
+        $data = $this->menuService->updateMenu($input);
+
+        return response()->json($data['menu'] ?? []);
     }
 
     /**

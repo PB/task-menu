@@ -28,4 +28,12 @@ interface MenuRepositoryInterface
      * @param int $menuId
      */
     public function destroyMenu(int $menuId): void;
+
+    /**
+     * @param int   $menuId
+     * @param array $menu
+     *
+     * @return array
+     */
+    public function updateMenu(int $menuId, array $menu): array;
 }
