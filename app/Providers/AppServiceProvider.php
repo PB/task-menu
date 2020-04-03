@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Services\Item\ItemService;
 use App\Services\Item\ItemServiceInterface;
-use App\Services\Item\Repository\ItemRepository;
+use App\Services\Item\Repository\CachedItemRepository;
 use App\Services\Item\Repository\ItemRepositoryInterface;
 use App\Services\Menu\MenuService;
 use App\Services\Menu\MenuServiceInterface;
@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(MenuServiceInterface::class, MenuService::class);
         $this->app->bind(MenuRepositoryInterface::class, MenuRepository::class);
         $this->app->bind(ItemServiceInterface::class, ItemService::class);
-        $this->app->bind(ItemRepositoryInterface::class, ItemRepository::class);
+        $this->app->bind(ItemRepositoryInterface::class, CachedItemRepository::class);
     }
 
     /**
