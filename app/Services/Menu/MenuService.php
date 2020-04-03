@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Services\Menu;
 
-use App\Services\menu\Command\DestroyMenuCommand;
-use App\Services\menu\Command\ShowMenuCommand;
-use App\Services\menu\Command\StoreMenuCommand;
-use App\Services\menu\Command\UpdateMenuCommand;
+use App\Services\Menu\Command\DestroyMenuCommand;
+use App\Services\Menu\Command\ShowMenuCommand;
+use App\Services\Menu\Command\StoreMenuCommand;
+use App\Services\Menu\Command\UpdateMenuCommand;
 use App\Services\Menu\Handler\DestroyMenuHandler;
 use App\Services\Menu\Handler\ShowMenuHandler;
 use App\Services\Menu\Handler\StoreMenuHandler;

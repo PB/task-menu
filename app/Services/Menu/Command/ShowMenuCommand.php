@@ -8,7 +8,7 @@ use Illuminate\Contracts\Support\Arrayable;
 /**
  * Class ShowMenuCommand
  *
- * @package App\Services\menu\Command
+ * @package App\Services\Menu\Command
  */
 class ShowMenuCommand implements Arrayable
 {
