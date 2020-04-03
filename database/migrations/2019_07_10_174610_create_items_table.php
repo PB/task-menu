@@ -15,9 +15,10 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            //
-
+            $table->unsignedBigInteger('menu_id')->nullable(false);
+            $table->string('name');
+            $table->nestedSet();
+            $table->foreign('menu_id')->references('id')->on('menus');
             $table->timestamps();
         });
     }

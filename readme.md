@@ -1,5 +1,11 @@
 # Menu manager
 
+## Serving application
+`docker run --rm -v $(pwd):/app composer install`
+
+`docker-compose up -d`
+
+
 ## Table of Contents
 - [How to submit the task](#how-to-submit-the-task)
 - [Task description](#task-description)
@@ -518,8 +524,17 @@ Get depth of menu.
 ## Bonus points
 
 * 10 vs 1.000.000 menu items - what would you do differently?
+ - For 10 items I would probably not used nested sets, however for 1.000.000 items in my opinion it could help a lot
 * Write documentation
 * Use PhpCS | PhpCsFixer | PhpStan
+```
+docker-compose exec app ./vendor/bin/phpcs
+docker-compose exec app php artisan fixer:fix
+docker-compose exec app php artisan code:analyse
+```
 * Use cache
+- I used one Cached Repository for demo 
 * Use docker
 * Implement tests
+- Didn't had time for unit test, but Services and Handlers need unit test for sure
+- Feature test added only for Menu and for a Menu Item (but only a bit) 
