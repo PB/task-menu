@@ -44,7 +44,7 @@ class MenuController extends Controller
      * @param  mixed  $menu
      * @return JsonResponse
      */
-    public function show($menu)
+    public function show($menu): JsonResponse
     {
         $data = $this->menuService->showMenu(['id' => $menu]);
 
@@ -67,10 +67,12 @@ class MenuController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  mixed  $menu
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function destroy($menu)
+    public function destroy($menu): JsonResponse
     {
-        //
+        $this->menuService->destroyMenu(['id' => $menu]);
+
+        return response()->json([], JsonResponse::HTTP_NO_CONTENT);
     }
 }

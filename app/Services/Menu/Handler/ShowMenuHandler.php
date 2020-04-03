@@ -4,8 +4,6 @@ declare(strict_types=1);
 namespace App\Services\Menu\Handler;
 
 use App\Services\menu\Command\ShowMenuCommand;
-use App\Services\menu\Command\StoreMenuCommand;
-use App\Services\Menu\Repository\MenuRepositoryInterface;
 
 /**
  * Class ShowMenuHandler

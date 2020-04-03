@@ -16,4 +16,16 @@ interface MenuRepositoryInterface
      * @return array
      */
     public function storeMenu(array $menu): array;
+
+    /**
+     * @param int $menuId
+     *
+     * @return array
+     */
+    public function showMenu(int $menuId): array;
+
+    /**
+     * @param int $menuId
+     */
+    public function destroyMenu(int $menuId): void;
 }

@@ -43,4 +43,12 @@ class MenuRepository implements MenuRepositoryInterface
     {
         return Menu::findOrFail($menuId)->toArray();
     }
+
+    /**
+     * @param int $menuId
+     */
+    public function destroyMenu(int $menuId): void
+    {
+        Menu::findOrFail($menuId)->delete();
+    }
 }
