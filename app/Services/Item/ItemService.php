@@ -34,7 +34,8 @@ class ItemService implements ItemServiceInterface
     /**
      * @inheritDoc
      */
-    public function storeItem(array $data = []) {
+    public function storeItem(array $data = [])
+    {
         $this->bus->addHandler(StoreItemCommand::class, StoreItemHandler::class);
         return $this->bus->dispatch(StoreItemCommand::class, $data, [StoreItemValidator::class]);
     }
@@ -42,14 +43,16 @@ class ItemService implements ItemServiceInterface
     /**
      * @inheritDoc
      */
-    public function showItem(array $data = []) {
+    public function showItem(array $data = [])
+    {
         // TODO: Implement showItem() method.
     }
 
     /**
      * @inheritDoc
      */
-    public function destroyItem(array $data = []) {
+    public function destroyItem(array $data = [])
+    {
         // TODO: Implement destroyItem() method.
     }
 }

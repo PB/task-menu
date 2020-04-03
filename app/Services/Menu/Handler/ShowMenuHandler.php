@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Services\Menu\Handler;
 
-use App\Services\menu\Command\ShowMenuCommand;
+use App\Services\Menu\Command\ShowMenuCommand;
 
 /**
  * Class ShowMenuHandler

@@ -10,13 +10,15 @@ use App\Services\Item\Command\StoreItemCommand;
  *
  * @package App\Services\Item\Handler
  */
-class StoreItemHandler extends AbstractHandler {
+class StoreItemHandler extends AbstractHandler
+{
     /**
      * @param StoreItemCommand $command
      *
      * @return array
      */
-    public function handle(StoreItemCommand $command): array {
+    public function handle(StoreItemCommand $command): array
+    {
         $items = $command->toArray();
         $menuId = \array_pop($items);
         $data = $this->prepareInputData($menuId, $items);
@@ -32,7 +34,8 @@ class StoreItemHandler extends AbstractHandler {
      *
      * @return array
      */
-    public function prepareInputData(int $menuId, array $data): array {
+    public function prepareInputData(int $menuId, array $data): array
+    {
         foreach ($data as &$item) {
             $item['menu_id'] = $menuId;
             !empty($item['children']) and $item['children'] = $this->prepareInputData($menuId, $item['children']);

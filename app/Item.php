@@ -20,8 +20,8 @@ class Item extends Model
     /**
      * @return array
      */
-    protected function getScopeAttributes(): array {
+    protected function getScopeAttributes(): array
+    {
         return [ 'menu_id' ];
     }
-
 }

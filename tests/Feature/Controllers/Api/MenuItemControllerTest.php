@@ -9,7 +9,8 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class MenuItemControllerTest extends TestCase {
+class MenuItemControllerTest extends TestCase
+{
     use RefreshDatabase;
     use WithFaker;
 
@@ -18,7 +19,8 @@ class MenuItemControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testStore(): void {
+    public function testStore(): void
+    {
         $menu = factory(Menu::class)->create();
 
         $name1 = $this->faker->word;
@@ -81,7 +83,8 @@ class MenuItemControllerTest extends TestCase {
      *
      * @return void
      */
-    public function testShow(): void {
+    public function testShow(): void
+    {
         $item = factory(Item::class)->create();
         $response = $this->json('GET', '/api/menus/' . $item->menu_id . '/items');
 
@@ -99,5 +102,4 @@ class MenuItemControllerTest extends TestCase {
     }
 
     // todo: add tests
-
 }

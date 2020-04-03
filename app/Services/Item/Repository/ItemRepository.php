@@ -52,5 +52,4 @@ class ItemRepository implements ItemRepositoryInterface
     public function destroyItem(int $itemId): void
     {
     }
-
 }

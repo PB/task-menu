@@ -12,7 +12,8 @@ class Menu extends Model
     /**
      * Get items for the menu
      */
-    public function items(): \Illuminate\Database\Eloquent\Relations\HasMany {
+    public function items(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(Item::class, 'menu_id', 'id');
     }
 }
