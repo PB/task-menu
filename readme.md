@@ -537,4 +537,4 @@ docker-compose exec app php artisan code:analyse
 * Use docker
 * Implement tests
 - Didn't had time for unit test, but Services and Handlers need unit test for sure
-- Feature test added only for Menu and a for a Menu Item (but only a bit) 
+- Feature test added only for Menu and for a Menu Item (but only a bit) 
